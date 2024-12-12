@@ -47,31 +47,33 @@ if (isset($_POST['delete_animal']) && isset($_POST['animal_index'])) {
 </head>
 
 <body>
-    <h1>Список животных</h1>
-    <ul>
-        <?php foreach ($_SESSION['animals'] as $i => $animal): ?>
-            <li>
-                <strong><?= htmlspecialchars($animal->getName()) ?></strong>
-                (<?= htmlspecialchars(get_class($animal)) ?>)<br>
-                Дата рождения: <?= htmlspecialchars($animal->getBirthDate()) ?><br>
-                Команды: <?= implode(", ", $animal->getCommands()) ?><br>
+    <div class="container">
+        <h1>Список животных</h1>
+        <ul>
+            <?php foreach ($_SESSION['animals'] as $i => $animal): ?>
+                <li>
+                    <strong><?= htmlspecialchars($animal->getName()) ?></strong>
+                    (<?= htmlspecialchars(get_class($animal)) ?>)<br>
+                    Дата рождения: <?= htmlspecialchars($animal->getBirthDate()) ?><br>
+                    Команды: <?= implode(", ", $animal->getCommands()) ?><br>
 
-                <!-- Форма для добавления команды -->
-                <form method="post">
-                    <input type="hidden" name="animal_index" value="<?= $i ?>">
-                    <input type="text" name="command" placeholder="Новая команда">
-                    <button type="submit" name="add_command">Обучить команде</button>
-                </form>
+                    <!-- Форма для добавления команды -->
+                    <form method="post" style="margin-top: 10px;">
+                        <input type="hidden" name="animal_index" value="<?= $i ?>">
+                        <input type="text" name="command" placeholder="Новая команда">
+                        <button type="submit" name="add_command">Обучить команде</button>
+                    </form>
 
-                <!-- Форма для удаления животного -->
-                <form method="post" style="margin-top:10px;">
-                    <input type="hidden" name="animal_index" value="<?= $i ?>">
-                    <button type="submit" name="delete_animal">Удалить</button>
-                </form>
-            </li>
-        <?php endforeach; ?>
-    </ul>
-    <a href="index.php">На главную</a>
+                    <!-- Форма для удаления животного -->
+                    <form method="post" style="margin-top:10px;">
+                        <input type="hidden" name="animal_index" value="<?= $i ?>">
+                        <button type="submit" name="delete_animal" class="btn_del_animal">Удалить</button>
+                    </form>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+        <a href="index.php">На главную</a>
+    </div>
 </body>
 
 </html>

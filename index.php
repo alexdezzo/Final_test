@@ -9,13 +9,15 @@
 </head>
 
 <body>
-    <h1>Реестр домашних животных</h1>
-    <nav>
-        <ul>
-            <li><a href="add_animal.php">Завести новое животное</a></li>
-            <li><a href="view_animals.php">Посмотреть список животных</a></li>
-        </ul>
-    </nav>
+    <div class="container">
+        <h1>Реестр домашних животных</h1>
+        <nav>
+            <ul>
+                <li><a href="add_animal.php">Завести новое животное</a></li>
+                <li><a href="view_animals.php">Посмотреть список животных</a></li>
+            </ul>
+        </nav>
+    </div>
 </body>
 
 </html>
