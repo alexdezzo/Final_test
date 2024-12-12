@@ -17,7 +17,7 @@ session_start();
 if (!isset($_SESSION['animals'])) {
     $_SESSION['animals'] = [];
 }
-
+// Обучение новой команде
 if (isset($_POST['add_command']) && isset($_POST['animal_index'])) {
     $index = (int)$_POST['animal_index'];
     $command = $_POST['command'];
@@ -25,6 +25,18 @@ if (isset($_POST['add_command']) && isset($_POST['animal_index'])) {
         $_SESSION['animals'][$index]->addCommand($command);
     }
 }
+// Проверяем, была ли отправлена форма на удаление
+if (isset($_POST['delete_animal']) && isset($_POST['animal_index'])) {
+    $index = (int)$_POST['animal_index'];
+    if (isset($_SESSION['animals'][$index])) {
+        // Удаляем животное из массива
+        unset($_SESSION['animals'][$index]);
+        // Можно не пересобирать массив, но для удобства сделаем array_values
+        $_SESSION['animals'] = array_values($_SESSION['animals']);
+    }
+}
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -42,10 +54,18 @@ if (isset($_POST['add_command']) && isset($_POST['animal_index'])) {
                 (<?= htmlspecialchars(get_class($animal)) ?>)<br>
                 Дата рождения: <?= htmlspecialchars($animal->getBirthDate()) ?><br>
                 Команды: <?= implode(", ", $animal->getCommands()) ?><br>
+
+                <!-- Форма для добавления команды -->
                 <form method="post">
                     <input type="hidden" name="animal_index" value="<?= $i ?>">
                     <input type="text" name="command" placeholder="Новая команда">
                     <button type="submit" name="add_command">Обучить команде</button>
+                </form>
+
+                <!-- Форма для удаления животного -->
+                <form method="post" style="margin-top:10px;">
+                    <input type="hidden" name="animal_index" value="<?= $i ?>">
+                    <button type="submit" name="delete_animal">Удалить</button>
                 </form>
             </li>
         <?php endforeach; ?>
