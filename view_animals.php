@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 require_once __DIR__ . '/classes/Animal.php';
 require_once __DIR__ . '/classes/DomesticAnimals.php';
 require_once __DIR__ . '/classes/PackAnimals.php';
@@ -9,6 +9,10 @@ require_once __DIR__ . '/classes/Hamsters.php';
 require_once __DIR__ . '/classes/Horses.php';
 require_once __DIR__ . '/classes/Camels.php';
 require_once __DIR__ . '/classes/Donkeys.php';
+require_once __DIR__ . '/classes/Counter.php';
+
+
+session_start();
 
 if (!isset($_SESSION['animals'])) {
     $_SESSION['animals'] = [];

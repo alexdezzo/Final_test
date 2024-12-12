@@ -1,5 +1,5 @@
 <?php
-session_start();
+// Подключаем классы
 require_once __DIR__ . '/classes/Animal.php';
 require_once __DIR__ . '/classes/DomesticAnimals.php';
 require_once __DIR__ . '/classes/PackAnimals.php';
@@ -10,6 +10,8 @@ require_once __DIR__ . '/classes/Horses.php';
 require_once __DIR__ . '/classes/Camels.php';
 require_once __DIR__ . '/classes/Donkeys.php';
 require_once __DIR__ . '/classes/Counter.php';
+
+session_start();
 
 // Если не существует массива животных в сессии, создаем
 if (!isset($_SESSION['animals'])) {
