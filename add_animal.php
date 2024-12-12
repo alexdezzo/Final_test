@@ -74,33 +74,40 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <head>
     <title>Добавить животное</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <h1>Завести новое животное</h1>
-    <?php if ($message) echo "<p>$message</p>"; ?>
-    <form method="post">
-        <label>Имя животного:</label><br>
-        <input type="text" name="name" required><br>
-        <label>Дата рождения:</label><br>
-        <input type="date" name="birthdate" required><br>
-        <label>Тип животного:</label><br>
-        <select name="type">
-            <option value="domestic">Домашнее</option>
-            <option value="pack">Вьючное</option>
-        </select><br>
-        <label>Вид:</label><br>
-        <select name="subtype">
-            <option value="dogs">Собака</option>
-            <option value="cats">Кошка</option>
-            <option value="hamsters">Хомяк</option>
-            <option value="horses">Лошадь</option>
-            <option value="camels">Верблюд</option>
-            <option value="donkeys">Осел</option>
-        </select><br><br>
-        <button type="submit">Добавить животное</button>
-    </form>
-    <a href="index.php">На главную</a>
+    <div class="container">
+        <h1>Завести новое животное</h1>
+        <?php if ($message) echo "<p>$message</p>"; ?>
+        <form method="post">
+            <label>Имя животного:</label><br>
+            <input type="text" name="name" required><br>
+            <label>Дата рождения:</label><br>
+            <input type="date" name="birthdate" required><br>
+            <label>Тип животного:</label><br>
+            <select name="type">
+                <option value="domestic">Домашнее</option>
+                <option value="pack">Вьючное</option>
+            </select><br>
+            <label>Вид:</label><br>
+            <select name="subtype">
+                <optgroup label="Домашние">
+                    <option value="dogs">Собака</option>
+                    <option value="cats">Кошка</option>
+                    <option value="hamsters">Хомяк</option>
+                </optgroup>
+                <optgroup label="Вьючные">
+                    <option value="horses">Лошадь</option>
+                    <option value="camels">Верблюд</option>
+                    <option value="donkeys">Осел</option>
+                </optgroup>
+            </select><br><br>
+            <button type="submit">Добавить животное</button>
+        </form>
+        <a href="index.php">На главную</a>
+    </div>
 </body>
 
 </html>

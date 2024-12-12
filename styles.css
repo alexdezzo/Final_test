@@ -1,0 +1,182 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: #f9f9f9;
+    color: #333;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    color: #333;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+label {
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    text-align: center;
+}
+
+nav li {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #0066cc;
+    font-size: 1em;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background 0.2s ease;
+}
+
+nav a:hover {
+    background: #e6f0ff;
+    text-decoration: none;
+}
+
+form {
+    margin-top: 20px;
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 6px;
+}
+
+input[type="text"],
+input[type="date"],
+select {
+    margin-bottom: 15px;
+    display: block;
+    padding: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.95em;
+}
+
+button {
+    padding: 8px 15px;
+    background: #0066cc;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 0.95em;
+    transition: background 0.2s ease;
+}
+
+.btn_del_animal {
+    background:#cc0000;
+}
+.btn_del_animal:hover {
+    background:#a10404;
+}
+
+button:hover {
+    background: #005bb5;
+}
+
+p {
+    font-style: italic;
+    color: #666;
+    text-align: center;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+li strong {
+    display: block;
+    font-size: 1.1em;
+    margin-bottom: 5px;
+}
+
+li form {
+    margin-top: 10px;
+    max-width: none;
+    border: none;
+    padding: 0;
+    background: none;
+}
+
+li form input[type="text"] {
+    display: inline-block;
+    width: auto;
+    margin-right: 10px;
+}
+
+a {
+    color: #0066cc;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: #004c99;
+    text-decoration: underline;
+}
+
+/* Респонсивная адаптация для мобильных устройств */
+@media (max-width: 600px) {
+    nav li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    form {
+        padding: 15px;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    select {
+        width: 100%;
+    }
+
+    button {
+        width: 100%;
+        text-align: center;
+    }
+
+    li {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.4em;
+    }
+}
