@@ -9,48 +9,58 @@ require_once __DIR__ . '/classes/Hamsters.php';
 require_once __DIR__ . '/classes/Horses.php';
 require_once __DIR__ . '/classes/Camels.php';
 require_once __DIR__ . '/classes/Donkeys.php';
+require_once __DIR__ . '/classes/Counter.php';
 
+// Если не существует массива животных в сессии, создаем
 if (!isset($_SESSION['animals'])) {
     $_SESSION['animals'] = [];
 }
 
 $message = "";
 
+// Обработка формы
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = $_POST['name'] ?? '';
     $birthDate = $_POST['birthdate'] ?? '';
     $type = $_POST['type'] ?? '';
     $subtype = $_POST['subtype'] ?? '';
 
-    if (!empty($name) && !empty($birthDate) && !empty($subtype)) {
-        switch ($subtype) {
-            case 'dogs':
-                $animal = new Dogs($name, $birthDate);
-                break;
-            case 'cats':
-                $animal = new Cats($name, $birthDate);
-                break;
-            case 'hamsters':
-                $animal = new Hamsters($name, $birthDate);
-                break;
-            case 'horses':
-                $animal = new Horses($name, $birthDate);
-                break;
-            case 'camels':
-                $animal = new Camels($name, $birthDate);
-                break;
-            case 'donkeys':
-                $animal = new Donkeys($name, $birthDate);
-                break;
-            default:
-                $animal = null;
-        }
+    // Проверим, что все поля заполнены
+    if (!empty($name) && !empty($birthDate) && !empty($type) && !empty($subtype)) {
+        $counter = new Counter();
+        try {
+            switch ($subtype) {
+                case 'dogs':
+                    $animal = new Dogs($name, $birthDate);
+                    break;
+                case 'cats':
+                    $animal = new Cats($name, $birthDate);
+                    break;
+                case 'hamsters':
+                    $animal = new Hamsters($name, $birthDate);
+                    break;
+                case 'horses':
+                    $animal = new Horses($name, $birthDate);
+                    break;
+                case 'camels':
+                    $animal = new Camels($name, $birthDate);
+                    break;
+                case 'donkeys':
+                    $animal = new Donkeys($name, $birthDate);
+                    break;
+                default:
+                    $animal = null;
+            }
 
-        if ($animal !== null) {
-            $_SESSION['animals'][] = $animal;
-            $message = "Животное успешно добавлено!";
-        } else {
-            $message = "Ошибка при определении класса животного.";
+            if ($animal !== null) {
+                $_SESSION['animals'][] = $animal;
+                $counter->add(); // Увеличивает счетчик при успешном добавлении
+                $message = "Животное успешно добавлено!";
+            } else {
+                $message = "Ошибка при определении класса животного.";
+            }
+        } finally {
+            $counter->close(); // Закрываем ресурс
         }
     } else {
         $message = "Пожалуйста, заполните все поля.";
