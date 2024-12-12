@@ -17,6 +17,9 @@
                 <li><a href="view_animals.php">Посмотреть список животных</a></li>
             </ul>
         </nav>
+        <button type="button" class="reset_session"><a href="reset_session.php" class="no-style">Сбросить
+                сессию</a></button>
+
     </div>
 </body>
 

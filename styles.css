@@ -6,7 +6,10 @@ html, body {
     color: #333;
     height: 100%;
     box-sizing: border-box;
+    
 }
+
+
 
 *, *::before, *::after {
     box-sizing: inherit;
@@ -97,9 +100,35 @@ button {
     background:#a10404;
 }
 
+.reset_session {
+    padding: 8px 15px;
+    background:#cc0000;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 0.95em;
+    transition: background 0.2s ease;
+    
+}
+.reset_session:hover {
+    background:#a10404;
+}
+
+.no-style {
+    text-decoration: none;
+    color: rgb(255, 255, 255)
+}
+
+.no-style:hover {
+    text-decoration: none;
+    color: rgb(255, 255, 255)
+}
+
 button:hover {
     background: #005bb5;
 }
+
 
 p {
     font-style: italic;
