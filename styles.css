@@ -1,0 +1,27 @@
+html, body {
+    margin: 0; padding: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: #f9f9f9; color: #333;
+}
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+h1 { text-align: center; }
+nav ul { list-style:none; text-align:center; }
+nav li { display:inline-block; margin: 0 10px; }
+
+form {
+    background:#fff; border:1px solid #ddd; border-radius:6px; padding:20px;
+    margin-top:20px;
+}
+input, select {
+    width:100%; margin-bottom:15px; padding:8px;
+    border:1px solid #ccc; border-radius:4px;
+}
+button {
+    background:#0066cc; color:#fff; border:none; padding:8px 15px;
+    border-radius:4px; cursor:pointer;
+}
+button:hover { background:#005bb5; }

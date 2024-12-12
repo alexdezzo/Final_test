@@ -74,6 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <head>
     <title>Добавить животное</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>

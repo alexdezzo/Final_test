@@ -43,6 +43,7 @@ if (isset($_POST['delete_animal']) && isset($_POST['animal_index'])) {
 
 <head>
     <title>Список животных</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
